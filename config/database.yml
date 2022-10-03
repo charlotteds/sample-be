@@ -14,7 +14,7 @@ default: &default
   encoding: utf8mb4
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
-  password:
+  password: sunasterisk
   socket: /tmp/mysql.sock
 
 development:
@@ -50,6 +50,9 @@ test:
 #
 production:
   <<: *default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
   database: sample_be_production
   username: sample_be
   password: <%= ENV['SAMPLE_BE_DATABASE_PASSWORD'] %>
